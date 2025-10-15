@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="앤 리얼티, 부동산, 경매, 자문">
+    <meta name="description" content="경매 물건 분석부터 낙찰 후 관리까지, 모든 과정을 함께, 앤 리얼티에서!">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no, address=no, email=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>무료 상담 신청 - 앤 리얼티</title>
+    
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div id="navbar-container"></div>
+
+    <!-- Main Content -->
+    <main>
+    <!-- Contact Form Section -->
+    <section class="contact-page-section" aria-labelledby="contact-title">
+        <div class="contact-two-column">
+            <!-- Left Column: Trust Content -->
+            <div class="contact-trust-column">
+                <div class="contact-trust-content">
+                    <div class="contact-badge">CONSULTATION</div>
+                    <h2 class="contact-main-title" id="contact-title">성공 투자의 첫걸음,<br>전문가와 함께하세요</h2>
+                    <p class="contact-subtitle">상담 신청에 남겨주신 정보는<br>철저히 비밀이 보장됩니다</p>
+                    
+                    <div class="trust-features">
+                        <div class="trust-feature">
+                            <div class="trust-icon">👨‍💼</div>
+                            <div class="trust-text">
+                                <h4>전문가 직접 상담</h4>
+                                <p>전문 자격을 보유한 전문가가 직접 상담해드립니다</p>
+                            </div>
+                        </div>
+                        <div class="trust-feature">
+                            <div class="trust-icon">🔒</div>
+                            <div class="trust-text">
+                                <h4>100% 비밀 보장</h4>
+                                <p>고객님의 정보는 철저히 보호됩니다</p>
+                            </div>
+                        </div>
+                        <div class="trust-feature">
+                            <div class="trust-icon">💰</div>
+                            <div class="trust-text">
+                                <h4>상담 비용 무료</h4>
+                                <p>초기 상담은 완전 무료로 진행됩니다</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-box">
+                        <h4>📞 긴급 상담이 필요하신가요?</h4>
+                        <p class="contact-phone"><a href="tel:010-4051-4410" aria-label="전화번호 010-4051-4410로 전화 걸기">010-4051-4410</a></p>
+                        <p class="contact-hours">평일 09:00 - 18:00 (주말 및 공휴일 상담 가능)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Column: Consultation Form -->
+            <div class="contact-form-column">
+                <div class="consultation-container">
+                    <!-- Form Header -->
+                    <div class="form-header">
+                        <h3 class="form-title">무료 상담 신청</h3>
+                        <p class="form-description">전문가가 24시간 내에 답변드립니다</p>
+                    </div>
+                    
+                    <!-- 진행 단계 표시 -->
+                    <div class="progress-container">
+                        <div class="progress-steps">
+                            <div class="progress-step active" data-step="0">
+                                <div class="step-circle">1</div>
+                                <span class="step-label">기본정보</span>
+                            </div>
+                            <div class="progress-step" data-step="1">
+                                <div class="step-circle">2</div>
+                                <span class="step-label">연락처</span>
+                            </div>
+                            <div class="progress-step" data-step="2">
+                                <div class="step-circle">3</div>
+                                <span class="step-label">이메일</span>
+                            </div>
+                            <div class="progress-step" data-step="3">
+                                <div class="step-circle">4</div>
+                                <span class="step-label">투자정보</span>
+                            </div>
+                            <div class="progress-step" data-step="4">
+                                <div class="step-circle">5</div>
+                                <span class="step-label">예산</span>
+                            </div>
+                            <div class="progress-step" data-step="5">
+                                <div class="step-circle">6</div>
+                                <span class="step-label">상담일</span>
+                            </div>
+                            <div class="progress-step" data-step="6">
+                                <div class="step-circle">7</div>
+                                <span class="step-label">시간</span>
+                            </div>
+                            <div class="progress-step" data-step="7">
+                                <div class="step-circle">8</div>
+                                <span class="step-label">문의</span>
+                            </div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                    </div>
+                
+                <form id="reservationForm">
+                    <div class="form-step active" data-step="0">
+                        <div class="form-group">
+                            <label for="name">성명 *</label>
+                            <input type="text" id="name" name="name" required placeholder="이름을 입력해주세요">
+                        </div>
+                    </div>
+                    <div class="form-step" data-step="1">
+                        <div class="form-group">
+                            <label for="phone">연락처 *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="010-0000-0000">
+                        </div>
+                    </div>
+                    <div class="form-step" data-step="2">
+                        <div class="form-group">
+                            <label for="email">이메일 *</label>
+                            <input type="email" id="email" name="email" required placeholder="example@email.com">
+                        </div>
+                    </div>
+                    <div class="form-step" data-step="3">
+                        <div class="form-group">
+                            <label for="investmentType">투자 유형 *</label>
+                            <select id="investmentType" name="investmentType" required>
+                                <option value="">선택해주세요</option>
+                                <option value="주택">주택</option>
+                                <option value="아파트">아파트</option>
+                                <option value="오피스텔">오피스텔</option>
+                                <option value="상가">상가</option>
+                                <option value="토지">토지</option>
+                                <option value="기타">기타</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-step" data-step="4">
+                        <div class="form-group">
+                            <label for="budget">예산 규모</label>
+                            <select id="budget" name="budget">
+                                <option value="">선택해주세요</option>
+                                <option value="1억 미만">1억 미만</option>
+                                <option value="1억~3억">1억~3억</option>
+                                <option value="3억~5억">3억~5억</option>
+                                <option value="5억~10억">5억~10억</option>
+                                <option value="10억 이상">10억 이상</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-step" data-step="5">
+                        <div class="form-group">
+                            <label for="preferredDate">희망 상담 일자</label>
+                            <input type="date" id="preferredDate" name="preferredDate">
+                        </div>
+                    </div>
+                    <div class="form-step" data-step="6">
+                        <div class="form-group">
+                            <label for="preferredTime">희망 상담 시간</label>
+                            <select id="preferredTime" name="preferredTime">
+                                <option value="">선택해주세요</option>
+                                <option value="10:00">오전 10:00</option>
+                                <option value="11:00">오전 11:00</option>
+                                <option value="12:00">오후 12:00</option>
+                                <option value="13:00">오후 1:00</option>
+                                <option value="14:00">오후 2:00</option>
+                                <option value="15:00">오후 3:00</option>
+                                <option value="16:00">오후 4:00</option>
+                                <option value="17:00">오후 5:00</option>
+                                <option value="18:00">오후 6:00</option>
+                                <option value="기타">기타 (문의사항에 기재)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-step" data-step="7">
+                        <div class="form-group">
+                            <label for="message">문의사항</label>
+                            <textarea id="message" name="message" placeholder="상세한 문의사항을 입력해주세요."></textarea>
+                        </div>
+                    </div>
+                    <div class="step-nav">
+                        <button type="button" class="back-btn" id="backBtn" disabled>뒤로가기</button>
+                        <button type="submit" class="btn" id="submitBtn" style="display: none;">상담 신청하기</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>
+
