@@ -4,14 +4,11 @@
 
 // ===== 초기화 =====
 document.addEventListener('DOMContentLoaded', function() {
-    // 컴포넌트 로딩
+    // 컴포넌트 로딩 (비동기)
     loadComponents();
     
     // 헤더 스크롤 효과 초기화 (index.html만 해당)
     initHeaderScroll();
-    
-    // CTA 버튼 위치 초기화 (index.html만 해당)
-    initCTAPosition();
     
     // 숫자 카운트업 애니메이션 (about.html만 해당)
     initNumberAnimation();
@@ -48,6 +45,12 @@ function loadComponents() {
             const footerContainer = document.getElementById('footer-container');
             if (footerContainer) {
                 footerContainer.innerHTML = html;
+                
+                // ✨ Footer 로딩 완료 후 CTA 초기화 실행
+                // 약간의 딜레이를 주어 DOM이 완전히 렌더링되도록 함
+                setTimeout(() => {
+                    initCTAPosition();
+                }, 100);
             }
         })
         .catch(error => console.error('Footer 로딩 실패:', error));
@@ -89,39 +92,49 @@ function initHeaderScroll() {
     window.addEventListener('scroll', handleHeaderScroll, { passive: true });
 }
 
-// ===== CTA 버튼 위치 제어 (index.html) =====
+// ===== CTA 버튼 위치 제어 (모든 페이지) =====
 function initCTAPosition() {
     const cta = document.getElementById('cta');
     const footer = document.getElementById('footer-section');
     
-    if (!cta || !footer) return; // 요소가 없으면 종료
+    // CTA 버튼이나 Footer가 없으면 종료 (정상 - 해당 페이지가 아님)
+    if (!cta || !footer) {
+        return;
+    }
+    
+    console.log('✅ CTA 위치 제어 초기화 완료'); // 디버깅용
     
     // CTA 초기 설정
     cta.style.position = 'fixed';
     cta.style.bottom = '0';
     cta.style.left = '0';
     cta.style.right = '0';
-    cta.style.zIndex = '1000';
+    cta.style.zIndex = '999'; // navbar보다 낮게 (navbar는 1000)
     cta.style.width = '100%';
-    cta.style.transition = 'opacity 0.3s ease, visibility 0.3s ease';
+    cta.style.transition = 'opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease';
     cta.style.opacity = '1';
     cta.style.visibility = 'visible';
     cta.style.pointerEvents = 'auto';
+    cta.style.transform = 'translateY(0)';
     
+    // CTA 위치 업데이트 함수
     function updateCTAPosition() {
         const footerRect = footer.getBoundingClientRect();
         const windowHeight = window.innerHeight;
         
-        // 푸터가 화면에 나타나면 CTA를 완전히 숨김
+        // 푸터의 상단이 화면에 나타나기 시작하면 CTA 숨김
         if (footerRect.top < windowHeight) {
+            // 부드럽게 아래로 슬라이드하며 사라짐
             cta.style.opacity = '0';
             cta.style.visibility = 'hidden';
             cta.style.pointerEvents = 'none';
+            cta.style.transform = 'translateY(100%)';
         } else {
-            cta.style.bottom = '0px';
+            // 부드럽게 위로 슬라이드하며 나타남
             cta.style.opacity = '1';
             cta.style.visibility = 'visible';
             cta.style.pointerEvents = 'auto';
+            cta.style.transform = 'translateY(0)';
         }
     }
     

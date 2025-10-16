@@ -758,10 +758,6 @@
             overflow: visible;
         }
         
-        body.loaded {
-            /* 애니메이션 제거 */
-        }
-        
         .page-transition-content {
             position: absolute;
             top: 50%;
@@ -2957,27 +2953,6 @@
         .scroll-indicator.fade-in::after {
             display: none;
         }
-        
-        /* 스크롤 애니메이션 클래스 비활성화 */
-        .fade-in-up {
-            /* 애니메이션 제거 */
-        }
-        
-        .fade-in-left {
-            /* 애니메이션 제거 */
-        }
-        
-        .fade-in-right {
-            /* 애니메이션 제거 */
-        }
-        
-        .scale-in {
-            /* 애니메이션 제거 */
-        }
-        
-        .slide-in-up {
-            /* 애니메이션 제거 */
-        }
         */ /* 431px 미디어 쿼리 끝 */
         /* @media (min-width: 481px) {
     /* 비교 테이블 481px 이상 최적화 */
@@ -4914,9 +4889,9 @@
         }
         
 
-
-        3. 태블릿 스타일 (1023px 이하)
-        ======================================== */
+/* ========================================
+   3. 태블릿 스타일 (1023px 이하)
+======================================== */
 
 @media (max-width: 1023px) {
     /* 네비게이션 조정 */
@@ -5424,7 +5399,8 @@
     
     /* ===== Process Cards - 모바일 최적화 ===== */
     .process-section {
-        padding: 60px 0;
+        padding: 60px 0 0 0;
+        margin-bottom: 0;
     }
     
     .process-cards {
@@ -5462,6 +5438,29 @@
     
     .summary-text {
         font-size: 14px;
+    }
+
+    /* ===== Testimonials Section - 모바일 최적화 (402px) ===== */
+    .testimonials-section {
+        padding: 60px 0;
+    }
+
+    .testimonials-container {
+        padding: 0 20px;
+    }
+
+    .testimonials-header {
+        margin-bottom: 40px;
+    }
+
+    .testimonials-main-title {
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+
+    .testimonials-subtitle {
+        font-size: 15px;
+        padding: 0 10px;
     }
 
     /* ===== 케이스 그리드 - 단일 열 ===== */
@@ -5842,6 +5841,25 @@
     /* ===== 여백 최적화 ===== */
     body {
         padding: 0;
+    }
+
+    /* ===== Footer - 모바일 최적화 ===== */
+    .footer-section {
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer-logo-container {
+        height: 70px;
+        margin-bottom: 20px;
+    }
+
+    .footer-logo {
+        width: 200px;
+    }
+
+    .company-info-text {
+        font-size: 14px;
     }
 }
 
